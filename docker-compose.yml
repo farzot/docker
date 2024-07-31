@@ -1,12 +1,22 @@
+version: '3.8'
+
 services:
   nestjs_api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile  # Ishlab chiqish uchun
     ports:
-      - '3001:3001'
-    environment:
-      - PORT=3001
-      - NODE_ENV=development
+      - "3011:3011"
     volumes:
-      - .:/app
+      - .:/app  # Mahalliy fayllarni konteynerga ulash
+    environment:
+      NODE_ENV: development  # Ishlab chiqish muhitini belgilash
+
+  nestjs_api_prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod  # Ishlab chiqarish uchun
+    ports:
+      - "3011:3011"
+    environment:
+      NODE_ENV: production  # Ishlab chiqarish muhitini belgilash

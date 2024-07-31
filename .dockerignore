@@ -1,7 +1,11 @@
+# .dockerignore
 node_modules
-test
-.gitignore
+npm-debug.log
+Dockerfile
+Dockerfile.prod
+docker-compose.yml
+*.md
 .git
 .prettierrc
-Dockerfile
-README.md
+
+

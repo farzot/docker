@@ -1,12 +1,12 @@
+# docker/Dockerfile
 FROM node:20
 
 WORKDIR /app
 
-COPY . .
-
+COPY package*.json ./
 RUN npm install
 
-EXPOSE 3001
+COPY . .
 
-#npm run start:dev
-CMD ["npm","run","start:dev"]
+# Ishga tushirish komandasi (dev)
+CMD ["npm", "run", "start:dev"]

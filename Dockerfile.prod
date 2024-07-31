@@ -1,16 +1,19 @@
+
+# docker/Dockerfile.prod
 FROM node:20
 
+# Ishlash uchun kerakli muhitni o'rnatish
 WORKDIR /app
 
+# Kerakli fayllarni ko'chirish
+COPY package*.json ./
+RUN npm install --production
+
+# Loyiha fayllarini ko'chirish
 COPY . .
 
-RUN npm install
+# Loyiha build jarayoni
+RUN npm run build
 
-RUN npm run build 
-
-RUN rm -rf ./src
-
-EXPOSE 3002
-
-#npm run start:dev
-CMD ["npm","run","start:prod"]
+# Ishga tushirish komandasi
+CMD ["node", "dist/main"]
